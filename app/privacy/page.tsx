@@ -16,7 +16,7 @@ export default function PrivacyPage() {
         <p>Team Kinetix is the controller of personal information collected through this website. You can contact us at <a href="mailto:info@teamkinetix.co.uk">info@teamkinetix.co.uk</a>, by telephone on <a href="tel:+441376337315">+44 (0)1376 337315</a>, or by post at Unit 3E, Moss Road, Witham, Essex CM8 3UW.</p>
 
         <h2>Information we collect</h2>
-        <p>When you make an enquiry, we may collect your name, company or organisation, email address, telephone number, enquiry type, event or production date and location, audience size, and the project information you choose to provide. We also process limited technical information, such as an IP address, to protect the form from misuse and rate-limit repeated submissions.</p>
+        <p>When you make an enquiry, we may collect your name, company or organisation, email address, telephone number, enquiry type and the project information you choose to provide. We also process limited technical information, such as an IP address, to protect the form from misuse and rate-limit repeated submissions.</p>
 
         <h2>Why we use it</h2>
         <p>We use this information to understand and respond to your enquiry, discuss your requirements, prepare a proposal and, where appropriate, take steps towards providing our services. Our lawful bases are taking steps at your request before entering into a contract and our legitimate interests in managing professional enquiries, maintaining business records and protecting the website from abuse.</p>

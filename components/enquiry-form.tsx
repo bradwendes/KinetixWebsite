@@ -1,6 +1,50 @@
 'use client';
-import { SiteLink as Link } from '@/components/site-link';
+
 import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { SiteLink as Link } from '@/components/site-link';
 import { Button } from '@/components/ui/button';
-export function EnquiryForm(){const[status,setStatus]=useState<'idle'|'pending'|'success'|'error'>('idle');const[message,setMessage]=useState('');async function submit(event:React.SubmitEvent<HTMLFormElement>){event.preventDefault();setStatus('pending');setMessage('');const form=event.currentTarget;const data=Object.fromEntries(new FormData(form).entries());try{const response=await fetch('/api/enquiries',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)});const result=await response.json() as {message?:string};if(!response.ok)throw new Error(result.message||'We could not send your enquiry.');setStatus('success');setMessage('Thank you. Your project is now on our radar and Team Kinetix will be in touch.');form.reset()}catch(error){setStatus('error');setMessage(error instanceof Error?error.message:'We could not send your enquiry. Please email us directly.')}}return <form className="enquiry-form" onSubmit={submit} noValidate><div className="form-grid"><label><span>Name *</span><input name="name" autoComplete="name" required maxLength={100}/></label><label><span>Company / organisation</span><input name="company" autoComplete="organization" maxLength={120}/></label><label><span>Email *</span><input name="email" type="email" autoComplete="email" required maxLength={160}/></label><label><span>Telephone</span><input name="telephone" type="tel" autoComplete="tel" maxLength={40}/></label><label><span>Type of enquiry *</span><select name="type" required defaultValue=""><option value="" disabled>Choose one</option><option>Performance</option><option>Event Support</option><option>Consultancy</option><option>Other</option></select></label><label><span>Event / production date</span><input name="date" type="date"/></label><label><span>Event / production location</span><input name="location" autoComplete="address-level2" maxLength={160}/></label><label><span>Approximate audience size</span><input name="audience" inputMode="numeric" maxLength={40}/></label></div><label className="block"><span>Tell us about your project *</span><textarea name="project" required minLength={20} maxLength={3000} rows={7} placeholder="What are you planning, and what would you like Team Kinetix to bring to it?"/></label><label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off"/></label><div className="mt-7 flex flex-col items-start gap-5 sm:flex-row sm:items-center"><Button variant="primary" type="submit" disabled={status==='pending'}>{status==='pending'?'Sending…':'Send enquiry'} <ArrowUpRight/></Button><p className="text-sm text-white/45">By sending this form, you agree to our <Link className="underline" href="/privacy">privacy notice</Link>.</p></div><output className={`form-status ${status}`} aria-live="polite">{message}</output></form>}
+
+export function EnquiryForm() {
+  const [status, setStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  async function submit(event: React.SubmitEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus('pending');
+    setMessage('');
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const response = await fetch('/api/enquiries', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) });
+      const result = (await response.json()) as { message?: string };
+      if (!response.ok) throw new Error(result.message || 'We could not send your enquiry.');
+      setStatus('success');
+      setMessage('Thank you. Your project is now on our radar and Team Kinetix will be in touch.');
+      form.reset();
+    } catch (error) {
+      setStatus('error');
+      setMessage(error instanceof Error ? error.message : 'We could not send your enquiry. Please email us directly.');
+    }
+  }
+
+  return (
+    <form className="enquiry-form" onSubmit={submit} noValidate>
+      <div className="form-grid">
+        <label><span>Name *</span><input name="name" autoComplete="name" required maxLength={100} /></label>
+        <label><span>Company / organisation</span><input name="company" autoComplete="organization" maxLength={120} /></label>
+        <label><span>Email *</span><input name="email" type="email" autoComplete="email" required maxLength={160} /></label>
+        <label><span>Telephone</span><input name="telephone" type="tel" autoComplete="tel" maxLength={40} /></label>
+        <label><span>Type of enquiry *</span><select name="type" required defaultValue=""><option value="" disabled>Choose one</option><option>Performance</option><option>Event Support</option><option>Consultancy</option><option>Other</option></select></label>
+      </div>
+      <label className="block"><span>Tell us about your project *</span><textarea name="project" required minLength={20} maxLength={3000} rows={7} placeholder="What are you planning, and what would you like Team Kinetix to bring to it?" /></label>
+      <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
+      <div className="mt-7 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+        <Button variant="primary" type="submit" disabled={status === 'pending'}>{status === 'pending' ? 'Sending…' : 'Send enquiry'} <ArrowUpRight /></Button>
+        <p className="text-sm text-white/45">By sending this form, you agree to our <Link className="underline" href="/privacy">privacy notice</Link>.</p>
+      </div>
+      <output className={`form-status ${status}`} aria-live="polite">{message}</output>
+    </form>
+  );
+}

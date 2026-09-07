@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: { title: 'Team Kinetix — Performance Without Limits', description: 'Professional movement performance, event support and consultancy for live events and productions.', type: 'website', url: '/' },
   twitter: { card: 'summary', title: 'Team Kinetix — Performance Without Limits', description: 'Professional movement performance, event support and consultancy.' },
-  icons: { icon: [{ url: '/favicon.png', type: 'image/png', sizes: '512x512' }], apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }] },
 };
 
 export const viewport: Viewport = {
@@ -41,6 +40,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB">
+      <head>
+        <link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="512x512" />
+        <link rel="shortcut icon" href="/favicon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+      </head>
       <body className={`${dmSans.variable} ${bebas.variable} antialiased`}>
         <a href="#main-content" className="skip-link">Skip to content</a>
         <SiteHeader />
