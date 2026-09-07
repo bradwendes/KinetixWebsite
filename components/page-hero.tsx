@@ -4,7 +4,7 @@ import { ArrowDownRight } from 'lucide-react';
 const heroImages: Record<string, { src: string; alt: string }> = {
   Performance: { src: '/images/performance-cricket.jpg', alt: 'Team Kinetix acrobats performing with flame effects before a stadium audience' },
   'Event support': { src: '/images/performance-battersea.jpg', alt: 'Team Kinetix delivering a coordinated acrobatic performance at Battersea Power Station' },
-  Consultancy: { src: '/images/team-kinetix-about.jpg', alt: 'Team Kinetix athlete clearing a performance obstacle in a precision vault' },
+  Consultancy: { src: '/images/performance-battersea.jpg', alt: 'Team Kinetix performers creating a coordinated acrobatic sequence at a major live event' },
   'About Team Kinetix': { src: '/images/performance-acrobatics.jpg', alt: 'Team Kinetix acrobat rotating high above an international event floor' },
   Contact: { src: '/images/performance-primary.jpg', alt: 'Team Kinetix performer airborne above a large live-event audience' },
   Showreel: { src: '/images/live-reel.jpg', alt: 'Team Kinetix performers in a live stage and television performance reel' },
