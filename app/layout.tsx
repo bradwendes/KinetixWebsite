@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Bebas_Neue, DM_Sans } from 'next/font/google';
 import './globals.css';
 import { SiteHeader } from '@/components/site-header';
@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: { title: 'Team Kinetix — Performance Without Limits', description: 'Professional movement performance, event support and consultancy for live events and productions.', type: 'website', url: '/' },
   twitter: { card: 'summary', title: 'Team Kinetix — Performance Without Limits', description: 'Professional movement performance, event support and consultancy.' },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#100d14',
+  colorScheme: 'dark light',
 };
 
 export default function RootLayout({
