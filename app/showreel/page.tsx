@@ -1,0 +1,8 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { PageHero } from '@/components/page-hero';
+import { VideoFacade } from '@/components/video-facade';
+import { videos } from '@/lib/site-data';
+export const metadata: Metadata = { title:'Showreel', description:'Watch Team Kinetix parkour, freerunning and acrobatic performance for live events, television and productions.', alternates:{canonical:'/showreel'} };
+export default function ShowreelPage(){ return <><PageHero eyebrow="Showreel" title="See what movement can do." intro="Live audiences. Outdoor environments. Stage and screen. Press play, then imagine what we could build around your brief." /><section className="section-pad bg-[var(--ink)]"><div className="site-container grid gap-x-8 gap-y-16 md:grid-cols-2">{videos.map((video,i)=><article key={video.id} className={i===0?'md:col-span-2':''}><div className="media-cut"><VideoFacade {...video} compact={i!==0} /></div><p className="eyebrow mt-6 !mb-2">{video.eyebrow}</p><h2 className="font-heading text-4xl uppercase leading-none sm:text-5xl">{video.title}</h2><p className="mt-3 max-w-xl text-white/55">{video.description}</p></article>)}</div><div className="mt-20 border-t border-white/15 pt-10 md:flex md:items-center md:justify-between"><div><p className="eyebrow">Your production</p><h2 className="font-heading text-5xl uppercase md:text-7xl">Now make it yours.</h2></div><Link href="/contact" className="button button-primary mt-6 md:mt-0">Discuss your event <ArrowUpRight /></Link></div></section></>; }
