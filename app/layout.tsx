@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: { title: 'Team Kinetix — Performance Without Limits', description: 'Professional movement performance, event support and consultancy for live events and productions.', type: 'website', url: '/' },
   twitter: { card: 'summary', title: 'Team Kinetix — Performance Without Limits', description: 'Professional movement performance, event support and consultancy.' },
+  icons: { icon: [{ url: '/favicon.png', type: 'image/png', sizes: '512x512' }], apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }] },
 };
 
 export const viewport: Viewport = {
