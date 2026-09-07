@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { SiteLink as Link } from '@/components/site-link';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 import { CtaBand } from '@/components/cta-band';
 import { VideoFacade } from '@/components/video-facade';

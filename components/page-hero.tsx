@@ -1,3 +1,3 @@
-import Link from 'next/link';
+import { SiteLink as Link } from '@/components/site-link';
 import { ArrowDownRight } from 'lucide-react';
 export function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) { return <section className="page-hero"><div className="site-container relative z-10 grid gap-10 lg:grid-cols-[1fr_.55fr] lg:items-end"><div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1></div><div className="max-w-xl"><p className="text-xl leading-relaxed text-white/70">{intro}</p><Link className="inline-arrow mt-7" href="/contact">Tell us about your project <ArrowDownRight /></Link></div></div></section>; }

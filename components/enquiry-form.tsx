@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import { SiteLink as Link } from '@/components/site-link';
 import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
