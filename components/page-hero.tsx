@@ -7,7 +7,7 @@ const heroImages: Record<string, { src: string; alt: string }> = {
   Consultancy: { src: '/images/performance-primary.jpg', alt: 'Team Kinetix performer airborne above a large stadium audience' },
   'About Team Kinetix': { src: '/images/performance-acrobatics.jpg', alt: 'Team Kinetix acrobat rotating high above an international event floor' },
   Contact: { src: '/images/team-kinetix-about.jpg', alt: 'Team Kinetix athlete clearing a performance obstacle in a precision vault' },
-  Showreel: { src: '/images/live-reel.jpg', alt: 'Team Kinetix performers in a live stage and television performance reel' },
+  'Kinetix in Action': { src: '/images/live-reel.jpg', alt: 'Team Kinetix performers in a live stage and television performance reel' },
   'Privacy notice': { src: '/images/bgt-archive.jpg', alt: 'Archive image of Team Kinetix performing on a major television stage' },
 };
 
